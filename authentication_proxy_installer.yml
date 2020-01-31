@@ -19,11 +19,11 @@
 
     - name: Make Authentication Proxy build
       make:
-        chdir: "/home/{{ ansible_user }}/duoauthproxy-3.2.1--src"
+        chdir: "/home/{{ ansible_user }}/{{ duo_auth_proxy_install_dir }}"
       become: yes
 
     - name: Install Authentication Proxy
-      shell: install
+      shell: "/home/{{ ansible_user }}/{{ duo_auth_proxy_install_dir }}/duoauthproxy-build/install --silent"
       args:
-        chdir: "/home/{{ ansible_user }}/duoauthproxy-3.2.1--src/duoauthproxy-build"
+        chdir: "/home/{{ ansible_user }}/{{ duo_auth_proxy_install_dir }}/duoauthproxy-build"
       become: yes

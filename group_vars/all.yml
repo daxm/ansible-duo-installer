@@ -9,3 +9,5 @@ packages_server:
   - zlib1g-dev
 
 duo_authentication_proxy_url: https://dl.duosecurity.com/duoauthproxy-latest-src.tgz
+
+duo_auth_proxy_install_dir: duoauthproxy-3.2.1--src
