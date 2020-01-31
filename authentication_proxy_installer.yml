@@ -23,7 +23,7 @@
       become: yes
 
     - name: Install Authentication Proxy
-      shell: "/home/{{ ansible_user }}/{{ duo_auth_proxy_install_dir }}/duoauthproxy-build/install --silent"
+      shell: "/home/{{ ansible_user }}/{{ duo_auth_proxy_install_dir }}/duoauthproxy-build/install --silent --install-dir /opt/duoauthproxy --service-user duo_authproxy_svc --log-group duo_authproxy_grp --create-init-script yes"
       args:
         chdir: "/home/{{ ansible_user }}/{{ duo_auth_proxy_install_dir }}/duoauthproxy-build"
       become: yes
