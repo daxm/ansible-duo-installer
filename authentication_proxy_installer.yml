@@ -1,0 +1,29 @@
+---
+- hosts: localhost
+  vars:
+    playbook_name: authentication_proxy
+
+  pre_tasks:
+    - name: INSTALL PACKAGES
+      apt:
+        name: "{{ packages_server }}"
+        state: latest
+      become: yes
+
+  tasks:
+    - name: Get and extract Authentication Proxy latest
+      unarchive:
+        src: "{{ duo_authentication_proxy_url }}"
+        dest: "/home/{{ ansible_user }}"
+        remote_src: yes
+
+    - name: Make Authentication Proxy build
+      make:
+        chdir: "/home/{{ ansible_user }}/duoauthproxy-3.2.1--src"
+      become: yes
+
+    - name: Install Authentication Proxy
+      shell: install
+      args:
+        chdir: "/home/{{ ansible_user }}/duoauthproxy-3.2.1--src/duoauthproxy-build"
+      become: yes

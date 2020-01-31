@@ -1,0 +1,11 @@
+---
+ansible_python_interpreter: /usr/bin/python3
+
+packages_server:
+  - build-essential
+  - python-dev
+  - libffi-dev
+  - perl
+  - zlib1g-dev
+
+duo_authentication_proxy_url: https://dl.duosecurity.com/duoauthproxy-latest-src.tgz
